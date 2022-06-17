@@ -1,4 +1,4 @@
-name-template: 'v$RESOLVED_VERSION'
+name-template: 'v$RESOLVED_VERSION $(date +%Y-%m-%d)'
 tag-template: 'v$RESOLVED_VERSION'
 categories:
   - title: 'Eingeführt'
