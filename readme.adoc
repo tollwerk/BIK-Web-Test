@@ -10,7 +10,7 @@ Die zugrunde liegenden Kriterien richten sich nach der aktuell veröffentlichen 
 
 * link:Prüfschritte/de/[Zu den Prüfschritten]
 
-Die Prüfschritte sind in der Auszeichnungssprache AsciiDoc verfasst, um die
+Die Prüfschritte sind in der Auszeichnungssprache AsciiDoc verfasst. Um die
 Mitarbeit zu unterstützen, stellen wir ein Tutorial für den Schnelleinstieg
 bereit.
 Orientieren Sie sich bei der Gestaltung des Quelltextes (Einrückungen etc.)
