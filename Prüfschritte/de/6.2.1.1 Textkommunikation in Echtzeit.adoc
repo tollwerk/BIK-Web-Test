@@ -1,0 +1,61 @@
+= Prüfschritt 6.2.1.1 Textkommunikation in Echtzeit
+include::include/author.adoc[]
+include::include/attributes.adoc[]
+
+== Was wird geprüft?
+
+Ermöglicht das Webangebot Zwei-Wege-Kommunikation (eine Sprechverbindung in beide Richtungen, z.B. Sprach- und Videotelefonie), muss es ebenfalls Textkommunikation in Echtzeit (RTT, Real-Time Text) zur Verfügung  stellen. Echtzeit bedeutet hier, dass schon die Eingabe einzelner Zeichen übertragen und dem  Empfänger angezeigt wird. Die Nutzenden müssen den eingegebenen Text nicht erst aktiv abschicken.
+
+== Warum wird das geprüft?
+
+Menschen, die nicht Sprache nutzen können oder wollen, sollen die Möglichkeit haben, über Echtzeit-Textkommunikation (RTT, Real-time Text) gleichrangig an Kommunikation teilzuhaben.
+
+== Wie wird geprüft?
+
+=== 1. Anwendbarkeit des Prüfschritts
+
+Der Prüfschritt ist anwendbar, wenn das zu testende Webangebot Zwei-Wege-Kommunikation ermöglicht. Dies umfasst z. B. webbasierte Sprach- und Videotelefonie.
+
+=== 2. Prüfung
+
+. Webangebot öffnen.
+. Wenn eine Funktion für die Zwei-Wege-Kommunikation geboten wird, prüfen ob auch Textkommunikation in Echtzeit (RTT, Real-time Text) unterstützt wird.
+
+=== 3. Hinweise
+
+Bei Echtzeit-Textkommunkation (RTT, Real-Time Text) erscheint der Text beim Empfänger dynamisch schon während der Eingabe des Senders. RTT ist also nicht das Gleiche wie etwa Chat, wo Nachrichten explizit abgeschickt werden und erst dann beim Empfänger erscheinen.
+  
+== Einordnung des Prüfschritts 
+
+=== Einordnung des Prüfschritts nach EN 301 549 V3.1.1
+
+6.2.1.1 RTT communication
+
+== Quellen
+
+[.BLOCK_LANG_EN]
+=== 6.2.1.1 RTT communication
+
+[.BLOCK_LANG_EN]
+--
+Where ICT is in a mode that provides a means for two-way voice communication,
+the ICT shall provide a means for two-way RTT communication, except where this
+would require design changes to add input or output hardware to the ICT. 
+
+NOTE 1:
+This requirement includes those products which do not have physical display or
+text entry capabilities but have the capability to connect to devices that do
+have such capabilities.
+It also includes intermediate ICT between the endpoints of the communication. 
+
+NOTE 2:
+There is no requirement to add: a hardware display, a hardware keyboard, or
+hardware to support the ability to connect to a display or keyboard, wired or
+wirelessly, if this hardware would not normally be provided. 
+
+NOTE 3:
+For the purposes of interoperability, support of Recommendation ITU-T T.140
+[i.36] is widely used.
+--
+
+(Aus EN 301 549 V3.1.1 Abschnitt 6.2.1.1 "RTT communication")

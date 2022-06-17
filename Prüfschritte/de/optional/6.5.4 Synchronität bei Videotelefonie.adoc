@@ -1,0 +1,69 @@
+= Prüfschritt 6.5.4 Synchronität bei Videotelefonie
+include::include/author.adoc[]
+include::include/attributes.adoc[]
+
+== Grundlage des Prüfschritts
+
+Der Abschnitt 6.5.4 der EN 301 549 wird in Tabelle A.1 *nicht* verwiesen und ist
+daher derzeit für Webseiten nicht anwendbar.
+
+== Was wird geprüft?
+
+Wenn die Web-App Videotelefonie unterstützt, soll die Zeitdifferenz zwischen
+Audio und Video nicht mehr als 100 Millisekunden betragen.
+
+== Wie wird geprüft?
+
+=== Anwendbarkeit des Prüfschritts
+
+Siehe <<Grundlage des Prüfschritts>>.
+
+// Der Prüfschritt ist anwendbar, wenn die Web-App Videotelefonie inkl.
+// Sprachübertragung unterstützt.
+
+=== Prüfung
+
+Für Hinweise zu diesem Prüfschritt, z. B. für die genaue Messung der
+Zeitdifferenz, können Sie auf GitHub https://github.com/BIK-BITV/BIK-Web-Test/issues[ein Issue] zu diesem
+Prüfschritt eröffnen.
+
+Die Zeitdifferenz zwischen Audio und Video bei einer
+Videotelefonieübertragung soll nicht mehr als 100 Millisekunden betragen,
+deutlich wahrnehmbare Differenzen sind also zu vermeiden.
+
+Die Synchronität kann mit einem Testvideoanruf geprüft werden.
+Dafür muss die Web-App auf zwei Testgeräten geöffnet werden.
+
+. App auf zwei Geräten öffnen
+. Videotelefonieverbindung zwischen den Geräten herstellen
+. Synchronität zwischen Sprache und Video prüfen (Lippensynchronität), ist
+  eine Zeitdifferenz deutlich wahrnehmbar?
+
+Um ein belastbares Ergebnis zu erzielen, sollte die Testübertragung wiederholt
+werden.
+
+==== Hinweise
+
+Untersuchungen zeigen, dass die Verständlichkeit deutlich mehr leidet, wenn das
+Video dem Audio hinterherhängt als andersherum.
+Diese Tatsache sollte bei der Bewertung entsprechend berücksichtigt und
+angemerkt werden.
+
+== Quellen
+
+[.BLOCK_LANG_EN]
+=== 6.5.4 Synchronization between audio and video
+
+[.BLOCK_LANG_EN]
+--
+Where ICT that provides two-way voice communication includes real-time video
+functionality, the ICT shall ensure a maximum time difference of 100 ms
+between the speech and video presented to the user. 
+
+NOTE:
+Recent research shows that, if audio leads the video, the intelligibility
+suffers much more than the reverse.
+--
+
+(Aus EN 301 549 V3.1.1 Abschnitt 6.5.4 "Synchronization between audio and
+video")
