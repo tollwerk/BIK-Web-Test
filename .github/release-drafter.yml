@@ -37,3 +37,4 @@ template: |
   ## Änderungen
 
   $CHANGES
+no-contributors-template: 'Keine Mitwirkenden'
