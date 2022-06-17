@@ -37,7 +37,7 @@ version-resolver:
 #  - 'minor'
 #  - 'patch'
 template: |
-  ## Änderungen
+  ## Was hat sich getan?
 
   $CHANGES
 no-contributors-template: 'Keine Mitwirkenden'
