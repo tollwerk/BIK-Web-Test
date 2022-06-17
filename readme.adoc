@@ -1,4 +1,4 @@
-= README
+= BIK BITV-Test (Web)
 DIAS GmbH <info@dias.de>
 2020-04-16
 :lang: de
