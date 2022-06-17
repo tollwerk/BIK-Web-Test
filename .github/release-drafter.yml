@@ -18,13 +18,13 @@ change-title-escapes: '\<*_&'
 version-resolver:
   major:
     labels:
-      - 'version:major'
+      - 'major'
   minor:
     labels:
-      - 'version:minor'
+      - 'minor'
   patch:
     labels:
-      - 'version:patch'
+      - 'patch'
   default: patch
 include-labels:
   - 'changelog:added :heavy_plus_sign:'
@@ -33,9 +33,9 @@ include-labels:
   - 'changelog:fixed :+1:'
   - 'changelog:removed :wastebasket:'
   - 'changelog:security :shield:'
-  - 'version:major'
-  - 'version:minor'
-  - 'version:patch'
+  - 'major'
+  - 'minor'
+  - 'patch'
 template: |
   ## Änderungen
 
