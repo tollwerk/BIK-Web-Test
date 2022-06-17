@@ -25,13 +25,13 @@ change-title-escapes: '\<*_&'
 version-resolver:
   major:
     labels:
-      - 'version:major :stop_sign:'
+      - 'version:major'
   minor:
     labels:
-      - 'version:minor :heavy_check_mark:'
+      - 'version:minor'
   patch:
     labels:
-      - 'version:patch :bug:'
+      - 'version:patch'
   default: patch
 template: |
   ## Änderungen
