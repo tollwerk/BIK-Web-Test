@@ -4,7 +4,7 @@ include::include/attributes.adoc[]
 
 == Was wird geprüft?
 
-Grafische Bedienelemente (alle verlinkten / interaktiven Grafiken und Bilder)
+Grafische Bedienelemente (alle verlinkten oder interaktiven Grafiken und Bilder)
 müssen mit Alternativtexten versehen werden (nicht verlinkte bzw. nicht
 interaktive Grafiken und Bilder werden in Prüfschritt
 ifdef::env_embedded[9.1.1.1b "Alternativtexte für Grafiken und Objekte"]
