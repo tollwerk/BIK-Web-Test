@@ -1,4 +1,4 @@
-name: Publish a test procedure release
+name: Release-Veröffentlichung
 
 on:
   workflow_dispatch:
@@ -37,6 +37,7 @@ jobs:
         uses: stefanzweifel/changelog-updater-action@v1
         id: update_changelog
         with:
+          release-notes: ${{ steps.draft_release.outputs.body }}
           latest-version: ${{ steps.draft_release.outputs.tag_name }}
 
       - name: Commit updated CHANGELOG
