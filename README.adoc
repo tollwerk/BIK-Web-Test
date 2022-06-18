@@ -34,7 +34,7 @@ Darüber hinaus enthält das Repository eine Kopie der Prüfschritte des BITV-Te
 
 == Tools & Standards
 
-Die folgenden Abschnitte stellen verschiedenen Github-Konzepte und -Funktionalitäten sowie sinnvolle Standards vor, aus denen schließlich ein Vorgehensvorschlag modelliert wird.
+Die folgenden Abschnitte stellen verschiedenen https://github.com/[Github]-Konzepte und -Funktionalitäten sowie sinnvolle Standards vor, aus denen schließlich ein Vorgehensvorschlag modelliert wird.
 
 === Releases & Tags
 
@@ -75,3 +75,14 @@ Der https://keepachangelog.com[Keep a Changelog]-Standard setz sich für das kon
 - Jedes Projekt sollte in seinem Wurzelverzeichnis eine Datei mit dem Namen `CHANGELOG.md` (oder nur `CHANGELOG`) im https://markdown.de/[Markdown]-Format haben.
 - In dieser Datei sollen — in strukturierter Form — alle nennenswerten Änderungen zu allen veröffentlichten Versionen des Projekts dokumentiert werden. Der Standard schlägt zur übersichtlichen Gliederung eine https://keepachangelog.com/de/1.0.0/#how[Reihe von Kategorien] vor, in welche die Änderungen gruppiert werden sollen.
 - Zusätzlich ist es möglich, noch unveröffentlichte Änderungen unter einer speziellen Überschrift („Unreleased“) darzustellen, sodass eine Vorschau entsteht, was in der nächsten Veröffentlichung enthalten sein wird.
+
+=== Pull-Requests
+
+Ein _Pull Request_ (oder _Merge Request_) bezeichnet in der Versionsverwaltung einen Arbeitsablauf, Quellcode-Änderungen in Softwareprojekten vorzunehmen. Ziel eines _Pull Requests_ ist, Änderungen aus einem _Branch_ (also einer abgeleiteten Arbeitsversion) in die eigentliche Quellcode-Basis zu übernehmen. Wird ein _Pull Request_ akzeptiert, so spricht man von einem _Merge_, wird er geschlossen, so spricht man von einem _Close_.
+
+Beim BITV-Test-Prüfverfahren stellen _Pull Requests_ den Standard-Weg dar, auf dem Änderungen in die Prüfschritte eingehen (sollen). Community-Mitglieder (oder die Projekt-Verwaltenden selbst) entwerfen Änderungsvorschläge für die Prüfschrittbescheibungen und übertragen diese in individuellen _Branches_ ins Repository. Sie reichen die Änderungen als Anträge zur Übernahme in den Haupt-Branch ein. In diesem Zug müssen sie wenigstens einen *Titel* für ihren _Pull Request_ angeben und haben zusätzlich die Möglichkeit, eine ausführlichere Erläuterung als *Nachricht* beizufügen (was beim BITV-Test selten vorkommen dürfte, da der Titel in der Regel genug Aussage transportieren kann).
+
+Nicht selten sind _Pull Requests_ das Ergebnis einer Themendiskussion (_Issue_) oder gehen damit einher. Sowohl _Issues_, als auch _Pull Requests_ sind auf Github dauerhaft einsehbar — auch nachdem sie übernommen oder geschlossen wurden.
+
+[CAUTION]
+Neben der Möglichkeit, Änderungen per _Pull Request_ in die Quellcode-Basis einzubringen, können diese auch direkt in den Haupt-_Branch_ übertragen werden. Wird dies zugelassen, besteht die Gefahr, dass Änderungen Eingang finden, die nicht ausreichend geprüft wurden und (bei Softwareprojekten) zu ernsthaften Problemen führen können. Diese Möglichkeit sollte daher allenfalls Verwaltenden mit einer besonders hohen Vertrauensstellung und mit viel Erfahrung vorbehalten sein. Im Idealfall wird durch entsprechende Einstellungen dafür gesorgt, dass eine direkte Veränderung der Code-Basis nicht möglich ist. 
