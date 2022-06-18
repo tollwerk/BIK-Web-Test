@@ -1,0 +1,77 @@
+= BIK BITV-Test Release-Konzept
+:author:        Joschi Kuphal
+:email:         joschi@tollwerk.de
+:revdate:       June 18th, 2022
+:revnumber:     1.0.0
+:lang:          de
+:orgname:       tollwerk GmbH
+:description:   Automatisierte und manuelle Prozesse rund um die Veröffentlichung des BIK BITV-Test-Prüfverfahrens
+:keywords:      BITV, WCAG, Accessibility, Test
+:toc:
+
+== Vorbemerkung
+
+Die Prüfschritte des https://github.com/BIK-BITV/BIK-Web-Test[BIK BITV-Test-Prüfverfahrens] stehen seit einiger Zeit öffentlich in einem Github-Repository zur Verfügung.
+Sie können dort von Interessierten eingesehen, kommentiert, diskutiert und kollaborativ weiterentwickelt werden.
+Die Weiterentwicklung der Prüfschritte ist bislang ein kontinuierlicher Vorgang, der keine Ausprägung von bestimmten Meilensteinen vorsieht.
+Die Einführung neuer Prüfschritte wurde zu bestimmten Zeitpunkten durchgeführt und in der Kommunikation wird dann auf den „Stand vor xx.xx.xxxx“ und den „Stand nach xx.xx.xxxx“ verwiesen.
+
+Die bislang fehlende Referenzierbarkeit eines bestimmten Standes eines Prüfschritts kann zu zeitabhängigen Ambiguitäten beim Nachvollziehen von Bewertungen führen.
+Um dem entgegenzuwirken, sollen künftig eindeutige Stände des Prüfverfahrens „eingefroren“ werden, so dass eine klare Bezugnahme möglich ist.
+
+Ein weiteres Problem für aktiv Prüfende ist, dass es derzeit nicht einfach möglich ist, Veränderungen der Prüfschritte zu erkennen und nachzuvollziehen, so dass sich die Prüfpraxis mit dem Verfahren weiterentwickeln kann.
+Zwar kommt die Speicherung der Prüfschritte auf Github grundsätzlich mit alle notwendigen Werkzeugen, alle Änderungen granular nachvollziehen zu können.
+Jedoch existiert keine anschauliche Zusammenstellung dieser Änderungen, so dass ein Gesamtbild nur mit sehr viel Mühe gewonnen werden kann.
+
+Das vorliegende Konzept beschäftigt sich mit den Fragen:
+
+- Wie kann ein koordiniertes Veröffentlichen von Meilensteinen des Prüfverfahrens aussehen?
+- Wie können die Änderungen am Prüfverfahren möglichst aufwandsfrei anschaulich dargestellt werden?
+- Welche Prozesse können und sollten an die Veröffentlichung eines Meilensteins anschließen?
+
+Im Git-Repository dieses Konzepts sowie in den Einstellungen zum Repository auf Github finden sich bereits einige prototypische Experimente, die z. T. unverändert oder mit Anpassungen in die Umsetzung des Konzepts übernommen werden können.
+Darüber hinaus enthält das Repository eine Kopie der Prüfschritte des BITV-Tests (Web), um realistisch damit experimentieren zu können.
+
+== Tools & Standards
+
+Die folgenden Abschnitte stellen verschiedenen Github-Konzepte und -Funktionalitäten sowie sinnvolle Standards vor, aus denen schließlich ein Vorgehensvorschlag modelliert wird.
+
+=== Releases & Tags
+
+Git als Versionierungssystem bietet die Möglichkeit, einen bestimmten Stand einer Codebasis bzw. des Inhalts eines Git-Repositories mit einer eindeutigen Bezeichnung, einem sog. *Tag* zu versehen.
+Der betreffende Repository-Stand ist dann anhand dieses Tags eindeutig referenzierbar (Hinweis: Auch ohne Tags ist es möglich, zu jedem beliebigen vergangenen Stand eines Repositories zu springen).
+Ein Tag ist im Grunde eine frei wählbare, innerhalb des Repositories eindeutige Zeichenkette.
+In der Praxis ist es üblich, *Versionsnummer* als Tags zu verwenden (statt freie Texte; <<semver,siehe unten>>).
+
+Github als Community-Plattform bietet zusätzlich die Möglichkeit, getaggte Stände eines Repositories als sog. *Releases* zu veröffentlichen. Releases verfügen — neben der eindeutigen Bezugnahme auf ein Tag — zusätzlich über:
+
+* eine *Release-Beschreibung*, die beliebige Informationen zum Release transportieren kann,
+* *Assets* zum Release; dabei handelt es sich um beliebige Dateianhänge, beispielsweise kompilierte Softwareversionen, Dokumentationen o. ä. Github fügt standardmäßig Archive des Repository-Inhaltes in mehreren Formaten als Assets an jedes Release.
+
+[[semver]]
+=== Semantische Versionierung
+
+https://semver.org/[Semantische Versionierung] („SemVer“) ist ein in der Open-Source-Softwareentwicklung verbreiteter und akzeptierter Standard zur Konstruktion und Vergabe von Versionsnummern. SemVer-Versionsnummern bestehen im Wesentlichen aus 3 aneinandergereihten und durch Punkte getrennte Zahlen (und möglicherweise einen Präfix sowie Suffix).
+
+[source]
+----
+1.2.3
+| | \_ PATCH-Version
+| \___ MINOR-Version
+\_____ MAJOR-Version
+----
+
+Die einzelnen Stellen in der Versionsnummer haben jeweils bestimmte Bedeutungen:
+
+MAJOR:: wird erhöht, wenn API-inkompatible Änderungen veröffentlicht werden,
+MINOR:: wird erhöht, wenn neue Funktionalitäten, welche kompatibel zur bisherigen API sind, veröffentlicht werden, und
+PATCH:: wird erhöht, wenn die Änderungen ausschließlich API-kompatible Bugfixes umfassen.
+
+[[changelog]]
+=== Keep A Changelog
+
+Der https://keepachangelog.com[Keep a Changelog]-Standard setz sich für das konsequente und koordinierte Führen eines Änderungsprotokolls für jede Software ein. Er schlägt dazu bestimmte Konventionen vor:
+
+- Jedes Projekt sollte in seinem Wurzelverzeichnis eine Datei mit dem Namen `CHANGELOG.md` (oder nur `CHANGELOG`) im https://markdown.de/[Markdown]-Format haben.
+- In dieser Datei sollen — in strukturierter Form — alle nennenswerten Änderungen zu allen veröffentlichten Versionen des Projekts dokumentiert werden. Der Standard schlägt zur übersichtlichen Gliederung eine https://keepachangelog.com/de/1.0.0/#how[Reihe von Kategorien] vor, in welche die Änderungen gruppiert werden sollen.
+- Zusätzlich ist es möglich, noch unveröffentlichte Änderungen unter einer speziellen Überschrift („Unreleased“) darzustellen, sodass eine Vorschau entsteht, was in der nächsten Veröffentlichung enthalten sein wird.
