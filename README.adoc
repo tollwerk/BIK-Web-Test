@@ -43,7 +43,8 @@ Der betreffende Repository-Stand ist dann anhand dieses Tags eindeutig referenzi
 Ein Tag ist im Grunde eine frei wählbare, innerhalb des Repositories eindeutige Zeichenkette.
 In der Praxis ist es üblich, *Versionsnummer* als Tags zu verwenden (statt freie Texte; <<semver,siehe unten>>).
 
-Github als Community-Plattform bietet zusätzlich die Möglichkeit, getaggte Stände eines Repositories als sog. *Releases* zu veröffentlichen. Releases verfügen — neben der eindeutigen Bezugnahme auf ein Tag — zusätzlich über:
+Github als Community-Plattform bietet zusätzlich die Möglichkeit, getaggte Stände eines Repositories als sog. *Releases* zu veröffentlichen.
+Releases verfügen — neben der eindeutigen Bezugnahme auf ein Tag — zusätzlich über:
 
 * eine *Release-Beschreibung*, die beliebige Informationen zum Release transportieren kann,
 * *Assets* zum Release; dabei handelt es sich um beliebige Dateianhänge, beispielsweise kompilierte Softwareversionen, Dokumentationen o. ä. Github fügt standardmäßig Archive des Repository-Inhaltes in mehreren Formaten als Assets an jedes Release.
@@ -51,7 +52,8 @@ Github als Community-Plattform bietet zusätzlich die Möglichkeit, getaggte St�
 [[semver]]
 === Semantische Versionierung
 
-https://semver.org/[Semantische Versionierung] („SemVer“) ist ein in der Open-Source-Softwareentwicklung verbreiteter und akzeptierter Standard zur Konstruktion und Vergabe von Versionsnummern. SemVer-Versionsnummern bestehen im Wesentlichen aus 3 aneinandergereihten und durch Punkte getrennte Zahlen (und möglicherweise einen Präfix sowie Suffix).
+https://semver.org/[Semantische Versionierung] („SemVer“) ist ein in der Open-Source-Softwareentwicklung verbreiteter und akzeptierter Standard zur Konstruktion und Vergabe von Versionsnummern.
+SemVer-Versionsnummern bestehen im Wesentlichen aus 3 aneinandergereihten und durch Punkte getrennte Zahlen (und möglicherweise einen Präfix sowie Suffix).
 
 [source]
 ----
@@ -70,24 +72,46 @@ PATCH:: wird erhöht, wenn die Änderungen ausschließlich API-kompatible Bugfix
 [[changelog]]
 === Keep A Changelog
 
-Der https://keepachangelog.com[Keep a Changelog]-Standard setz sich für das konsequente und koordinierte Führen eines Änderungsprotokolls für jede Software ein. Er schlägt dazu bestimmte Konventionen vor:
+Der https://keepachangelog.com[Keep a Changelog]-Standard setz sich für das konsequente und koordinierte Führen eines Änderungsprotokolls für jede Software ein.
+Er schlägt dazu bestimmte Konventionen vor:
 
 - Jedes Projekt sollte in seinem Wurzelverzeichnis eine Datei mit dem Namen `CHANGELOG.md` (oder nur `CHANGELOG`) im https://markdown.de/[Markdown]-Format haben.
-- In dieser Datei sollen — in strukturierter Form — alle nennenswerten Änderungen zu allen veröffentlichten Versionen des Projekts dokumentiert werden. Der Standard schlägt zur übersichtlichen Gliederung eine https://keepachangelog.com/de/1.0.0/#how[Reihe von Kategorien] vor, in welche die Änderungen gruppiert werden sollen.
+- In dieser Datei sollen — in strukturierter Form — alle nennenswerten Änderungen zu allen veröffentlichten Versionen des Projekts dokumentiert werden.
+Der Standard schlägt zur übersichtlichen Gliederung eine https://keepachangelog.com/de/1.0.0/#how[Reihe von Kategorien] vor, in welche die Änderungen gruppiert werden sollen.
 - Zusätzlich ist es möglich, noch unveröffentlichte Änderungen unter einer speziellen Überschrift („Unreleased“) darzustellen, sodass eine Vorschau entsteht, was in der nächsten Veröffentlichung enthalten sein wird.
 
 [[pullrequest]]
 === Pull-Requests
 
-Ein _Pull Request_ (oder _Merge Request_) bezeichnet in der Versionsverwaltung einen Arbeitsablauf, Quellcode-Änderungen in Softwareprojekten vorzunehmen. Ziel eines _Pull Requests_ ist, Änderungen aus einem _Branch_ (also einer abgeleiteten Arbeitsversion) in die eigentliche Quellcode-Basis zu übernehmen. Wird ein _Pull Request_ akzeptiert, so spricht man von einem _Merge_, wird er geschlossen, so spricht man von einem _Close_.
+Ein _Pull Request_ (oder _Merge Request_) bezeichnet in der Versionsverwaltung einen Arbeitsablauf, Quellcode-Änderungen in Softwareprojekten vorzunehmen.
+Ziel eines _Pull Requests_ ist, Änderungen aus einem _Branch_ (also einer abgeleiteten Arbeitsversion) in die eigentliche Quellcode-Basis zu übernehmen.
+Wird ein _Pull Request_ akzeptiert, so spricht man von einem _Merge_, wird er geschlossen, so spricht man von einem _Close_.
 
-Beim BITV-Test-Prüfverfahren stellen _Pull Requests_ den Standard-Weg dar, auf dem Änderungen in die Prüfschritte eingehen (sollen). Community-Mitglieder (oder die Projekt-Verwaltenden selbst) entwerfen Änderungsvorschläge für die Prüfschrittbescheibungen und übertragen diese in individuellen _Branches_ ins Repository. Sie reichen die Änderungen als Anträge zur Übernahme in den Haupt-Branch ein. In diesem Zug müssen sie wenigstens einen *Titel* für ihren _Pull Request_ angeben und haben zusätzlich die Möglichkeit, eine ausführlichere Erläuterung als *Nachricht* beizufügen (was beim BITV-Test selten vorkommen dürfte, da der Titel in der Regel genug Aussage transportieren kann).
+Beim BITV-Test-Prüfverfahren stellen _Pull Requests_ den Standard-Weg dar, auf dem Änderungen in die Prüfschritte eingehen (sollen).
+Community-Mitglieder (oder die Projekt-Verwaltenden selbst) entwerfen Änderungsvorschläge für die Prüfschrittbescheibungen und übertragen diese in individuellen _Branches_ ins Repository.
+Sie reichen die Änderungen als Anträge zur Übernahme in den Haupt-Branch ein.
+In diesem Zug müssen sie wenigstens einen *Titel* für ihren _Pull Request_ angeben und haben zusätzlich die Möglichkeit, eine ausführlichere Erläuterung als *Nachricht* beizufügen (was beim BITV-Test selten vorkommen dürfte, da der Titel in der Regel genug Aussage transportieren kann).
 
-Nicht selten sind _Pull Requests_ das Ergebnis einer Themendiskussion (_Issue_) oder gehen damit einher. Sowohl _Issues_, als auch _Pull Requests_ sind auf Github dauerhaft einsehbar — auch nachdem sie übernommen oder geschlossen wurden.
+Nicht selten sind _Pull Requests_ das Ergebnis einer Themendiskussion (_Issue_) oder gehen damit einher.
+Sowohl _Issues_, als auch _Pull Requests_ sind auf Github dauerhaft einsehbar — auch nachdem sie übernommen oder geschlossen wurden.
 
 [CAUTION]
-Neben der Möglichkeit, Änderungen per _Pull Request_ in die Quellcode-Basis einzubringen, können diese auch direkt in den Haupt-_Branch_ übertragen werden. Wird dies zugelassen, besteht die Gefahr, dass Änderungen Eingang finden, die nicht ausreichend geprüft wurden und (bei Softwareprojekten) zu ernsthaften Problemen führen können. Diese Möglichkeit sollte daher allenfalls Verwaltenden mit einer besonderen Vertrauensstellung und mit viel Erfahrung vorbehalten sein. Im Idealfall wird durch entsprechende Einstellungen dafür gesorgt, dass eine direkte Veränderung der Code-Basis generell nicht möglich ist. 
+Neben der Möglichkeit, Änderungen per _Pull Request_ in die Quellcode-Basis einzubringen, können diese auch direkt in den Haupt-_Branch_ übertragen werden.
+Wird dies zugelassen, besteht die Gefahr, dass Änderungen Eingang finden, die nicht ausreichend geprüft wurden und (bei Softwareprojekten) zu ernsthaften Problemen führen können.
+Diese Möglichkeit sollte daher allenfalls Verwaltenden mit einer besonderen Vertrauensstellung und mit viel Erfahrung vorbehalten sein.
+Im Idealfall wird durch entsprechende Einstellungen dafür gesorgt, dass eine direkte Veränderung der Code-Basis generell nicht möglich ist.
 
 === Labels
 
-Um die Bearbeitungsabläufe benutzerfreundlich zu gestalten, bietet Github an, _Issues_ und <<pullrequest,_Pull Requests_>> mit Etiketten, sog. _Labels_ zu versehen. Die Labels können mit einer Farbe assoziiert und frei angelegt werden (Github bringt eine Standard-Vorauswahl mit, die jedoch verworfen oder verändert werden kann). _Labels_ machen es einfach, Themen zu kategorisieren, priorisieren oder anderweitig zu organisieren. Sie dienen rein der Oberflächennutzung und haben keine funktionale Auswirkung auf die Quellcode-Basis.
+Um die Bearbeitungsabläufe benutzerfreundlich zu gestalten, bietet Github an, _Issues_ und <<pullrequest,_Pull Requests_>> mit Etiketten, sog. _Labels_ zu versehen.
+Die Labels können mit einer Farbe assoziiert und frei angelegt werden (Github bringt eine Standard-Vorauswahl mit, die jedoch verworfen oder verändert werden kann). _Labels_ machen es einfach, Themen zu kategorisieren, priorisieren oder anderweitig zu organisieren.
+Sie dienen rein der Oberflächennutzung und haben keine funktionale Auswirkung auf die Quellcode-Basis.
+
+=== Github Actions
+
+https://de.github.com/features/actions[_Github Actions_] bringen die Möglichkeit, beim Eintreten bestimmter Ereignisse in einem Repository nahezu beliebige Prozesse anzustoßen und ablaufen zu lassen.
+Beispielsweise können beim Einreichen von neuem Code automatisierte Tests die Gültigkeit und Funktionstüchtigkeit der neuen Programmierung prüfen und Alarm schlagen, sollte ein Problem erkannt werden.
+Oder es können beim Veröffentlichen eines Releases Kompilierschritte vollzogen werden, die für die lauffähige Form der Software notwendig sind.
+
+_Github Actions_ führen dazu sog. _Workflows_ aus, die in https://yaml.org/[YAML]-Dateien artikuliert und direkt im Repository gespeichert werden.
+Die Funktionalität steht für öffentliche Repositories kostenfrei zur Verfügung.
