@@ -76,6 +76,7 @@ Der https://keepachangelog.com[Keep a Changelog]-Standard setz sich für das kon
 - In dieser Datei sollen — in strukturierter Form — alle nennenswerten Änderungen zu allen veröffentlichten Versionen des Projekts dokumentiert werden. Der Standard schlägt zur übersichtlichen Gliederung eine https://keepachangelog.com/de/1.0.0/#how[Reihe von Kategorien] vor, in welche die Änderungen gruppiert werden sollen.
 - Zusätzlich ist es möglich, noch unveröffentlichte Änderungen unter einer speziellen Überschrift („Unreleased“) darzustellen, sodass eine Vorschau entsteht, was in der nächsten Veröffentlichung enthalten sein wird.
 
+[[pullrequest]]
 === Pull-Requests
 
 Ein _Pull Request_ (oder _Merge Request_) bezeichnet in der Versionsverwaltung einen Arbeitsablauf, Quellcode-Änderungen in Softwareprojekten vorzunehmen. Ziel eines _Pull Requests_ ist, Änderungen aus einem _Branch_ (also einer abgeleiteten Arbeitsversion) in die eigentliche Quellcode-Basis zu übernehmen. Wird ein _Pull Request_ akzeptiert, so spricht man von einem _Merge_, wird er geschlossen, so spricht man von einem _Close_.
@@ -85,4 +86,8 @@ Beim BITV-Test-Prüfverfahren stellen _Pull Requests_ den Standard-Weg dar, auf 
 Nicht selten sind _Pull Requests_ das Ergebnis einer Themendiskussion (_Issue_) oder gehen damit einher. Sowohl _Issues_, als auch _Pull Requests_ sind auf Github dauerhaft einsehbar — auch nachdem sie übernommen oder geschlossen wurden.
 
 [CAUTION]
-Neben der Möglichkeit, Änderungen per _Pull Request_ in die Quellcode-Basis einzubringen, können diese auch direkt in den Haupt-_Branch_ übertragen werden. Wird dies zugelassen, besteht die Gefahr, dass Änderungen Eingang finden, die nicht ausreichend geprüft wurden und (bei Softwareprojekten) zu ernsthaften Problemen führen können. Diese Möglichkeit sollte daher allenfalls Verwaltenden mit einer besonders hohen Vertrauensstellung und mit viel Erfahrung vorbehalten sein. Im Idealfall wird durch entsprechende Einstellungen dafür gesorgt, dass eine direkte Veränderung der Code-Basis nicht möglich ist. 
+Neben der Möglichkeit, Änderungen per _Pull Request_ in die Quellcode-Basis einzubringen, können diese auch direkt in den Haupt-_Branch_ übertragen werden. Wird dies zugelassen, besteht die Gefahr, dass Änderungen Eingang finden, die nicht ausreichend geprüft wurden und (bei Softwareprojekten) zu ernsthaften Problemen führen können. Diese Möglichkeit sollte daher allenfalls Verwaltenden mit einer besonderen Vertrauensstellung und mit viel Erfahrung vorbehalten sein. Im Idealfall wird durch entsprechende Einstellungen dafür gesorgt, dass eine direkte Veränderung der Code-Basis generell nicht möglich ist. 
+
+=== Labels
+
+Um die Bearbeitungsabläufe benutzerfreundlich zu gestalten, bietet Github an, _Issues_ und <<pullrequest,_Pull Requests_>> mit Etiketten, sog. _Labels_ zu versehen. Die Labels können mit einer Farbe assoziiert und frei angelegt werden (Github bringt eine Standard-Vorauswahl mit, die jedoch verworfen oder verändert werden kann). _Labels_ machen es einfach, Themen zu kategorisieren, priorisieren oder anderweitig zu organisieren. Sie dienen rein der Oberflächennutzung und haben keine funktionale Auswirkung auf die Quellcode-Basis.
