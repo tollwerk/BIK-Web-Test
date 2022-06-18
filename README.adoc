@@ -107,6 +107,7 @@ Um die Bearbeitungsabläufe benutzerfreundlich zu gestalten, bietet Github an, _
 Die Labels können mit einer Farbe assoziiert und frei angelegt werden (Github bringt eine Standard-Vorauswahl mit, die jedoch verworfen oder verändert werden kann). _Labels_ machen es einfach, Themen zu kategorisieren, priorisieren oder anderweitig zu organisieren.
 Sie dienen rein der Oberflächennutzung und haben keine funktionale Auswirkung auf die Quellcode-Basis.
 
+[[githubactions]]
 === Github Actions
 
 https://de.github.com/features/actions[_Github Actions_] bringen die Möglichkeit, beim Eintreten bestimmter Ereignisse in einem Repository nahezu beliebige Prozesse anzustoßen und ablaufen zu lassen.
@@ -115,3 +116,59 @@ Oder es können beim Veröffentlichen eines Releases Kompilierschritte vollzogen
 
 _Github Actions_ führen dazu sog. _Workflows_ aus, die in https://yaml.org/[YAML]-Dateien artikuliert und direkt im Repository gespeichert werden.
 Die Funktionalität steht für öffentliche Repositories kostenfrei zur Verfügung.
+
+== Release-Konzept
+
+Aufbauend auf den oben dargestellten Tools und Standards wird folgender Vorgehensvorschlag unterbreitet.
+
+Prüfschritt-Änderungen nur über Pull Requests:: Es wird festgelegt, dass Änderungen an den Prüfschritten *ausschließlich über <<pullrequest,Pull Requests>>* erfolgen dürfen. Direktes Übertragen von Code-Änderungen in den Haupt-Branch ist allenfalls zur technischen Administration und zum Ändern der Programmierteile des Repositories (z. B. Github-Action-Workflows) gestattet. _Pull Requests_ sind generell *so granular wie möglich* zu halten. Zulässig sind nur *Änderungen an einem Prüfschritt je Pull Request*.
+[[prtitle]]
+Pull-Request-Titel:: Die Betitelung von Pull Requests unterliegt <<pullrequesttitel,besonderen Regeln>> und ist mit entsprechender Sorgfalt durchzuführen, da die Titel für die automatische Erzeugung von Release-Notizen sowie zur Aktualisierung des Änderungsprotokolls herangezogen werden. Da die Titel initial von den Antragstellenden verfasst werden, ist es Aufgabe der Verwaltenden, die Formulierung der Titel auf die Richtlinie hin zu prüfen und ggf. anzupassen, *bevor ein Pull Request akzeptiert wird*.
+[[prlabels]]
+Labels für Pull Requests:: Jedem _Pull Request_ sind zwei Label aus zwei vorgegebenen Taxonomien zu vergeben:
++
+--
+. In Abhängigkeit davon, wie gravierend die Änderungen sind, die mit dem _Pull Request_ einhergehen, steuert ein *Versionierungs-Label* (`version:*`), ob sich daraus eine PATCH-, MINOR- oder MAJOR-Versionsänderung ergeben sollt. Wird kein Versionierungs-Label vergeben, so wird automatisch eine PATCH-Versionsänderung hervorgerufen.
+. Ein *Änderungsprotokoll-Label* (`changelog:*`) ordnet den _Pull Requests_ in eine der 6 Kategorien ein, in die Änderungen im Änderungsprotokoll gruppiert werden. Wird kein Änderungsprotokoll-Label vergeben, so wird der _Pull Request_ nicht im Änderungsprotokoll erwähnt (kann in Ausnahmesituationen gezielt genutzt werden).
+--
+Periodische Releases:: Die Prüfschritte des BITV-Test-Prüfverfahrens werden *in regelmäßigen Abständen* — vorgeschlagen wird ein quartalsweiser oder 2-monatiger Rhythmus — als neues *Release* veröffentlicht. Die Veröffentlichung erfolgt automatisiert über <<githubactions,Github Actions>> und wird durch ein _Scheduler_-Ereignis angestoßen (zeitplanbasiert). Bestandteil eines Releases sind stets alle _Pull Requests_ (und Direktänderungen der Code-Basis) seit der Veröffentlichung des letzten Releases.
+Bei Bedarf: Manuelle Releases:: Für Ausnahmesituationen (z. B. bei dringender notwendiger Anpassung) besteht zusätzlich die Möglichkeit, auch außerhalb des regulären Takts manuell Releases zu veröffentlichen. Der eigentliche Vorgang ist mit einem periodischen Release identisch.
+[[releaseversion]]
+Versionsnummer:: Jedes Release erhält eine eindeutige Versionsnummer nach dem Standard der <<semver,Semantischen Versionierung>>. Zur automatischen Bestimmung der neuen Versionsnummer werden die <<prlabels,Versionierungs-Label>> der im Release erhaltenen _Pull Requests_ betrachtet. Größere Versionssprünge überwiegen kleinere. Das heißt, verlangt ein _Pull Request_ über sein `version:*`-Label eine PATCH-Veränderung, ein anderer dagegen eine MINOR-Veränderung, so wird dies zu einer Anhebung der MINOR-Stelle der Versionsnummer führen (die PATCH-Stelle wird dabei auf 0 zurückgesetzt).
+[[releasenotes]]
+Automatische Release-Notizen:: Beim Erstellen des Releases werden automatisch Release-Notizen generiert. Es werden sämtliche im Release enthaltenen _Pull Requests_ aufgenommen, die über ein <<prlabels,Änderungsprotokoll-Label>> verfügen. Die einzelnen _Pull Requests_ werden unter Angabe ihres <<prtitle,Titels>>, ihres Autors bzw. ihrer Autorin (verlinktes Github-Handle) sowie der verlinkten Pull-Request-ID dargestellt. Die Einträge werden anhand der Änderungsprotokoll-Label gruppiert. Die Release-Notizen werden durch einen Face-Pile der am Release beteiligten Mitwirkenden abgeschlossen. Beispiele finden sich im link:/tollwerk/BIK-Web-Test/releases[Releases-Bereich dieses Repositories.]
+Automatische Aktualisierung des Änderungsprotokolls:: Im Zuge der Release-Erstellung wird auch das Änderungsprotokoll des Repositories aktualisiert. Die Inhalte der <<releasenotes,Release-Notizen>> werden, vom Mitwirkenden-Face-Pile abgesehen, 1:1 ins Änderungsprotokoll übernommen und zusammen mit der <<releaseversion,Release-Version>> und dem Veröffentlichungsdatum wiedergegeben.
+Optional: Automatische Release-Assets:: Es ist denkbar, einem Release vor der veröffentlichung <<releaseassets,zusätzliche Assets>> anzuhängen, etwa eine versionierte, dynamisch generierte PDF/UA-Gesamtversion des kompletten Prüfverfahrens mit allen Prüfschritten. 
+Automatische Release-Folgeaktionen:: Sobald ein Release veröffentlicht wurde, können an dieses Ereignis *weitere Prozessketten* anschließen. Beispielsweise müssen dann die Prüfschrittbeschreibungen im BITV-Test-Studio aktualisiert und auf den neuesten Stand gebracht werden. Es lassen sind jedoch auch viele <<releaseactions,weitere Anschlussaktionen>> denkbar.
+
+Das dargestellte Release-Konzept ist, von den optionalen Teilen und Vorschlägen abgesehen, in diesem Repository bereits prototypisch umgesetzt, grundsätzlich einsatzfähig und demonstrierbar.
+
+[NOTE]
+Aufgrund eines https://github.com/release-drafter/release-drafter/issues/1148[bekannten Problems] in einem beteiligten Modul kann die Veröffentlichung von Releases derzeit noch nicht vollautomatisch angestoßen werden. Zumal aber ohnehin nur ein quartalsweiser Zeittakt vorgschlagen wird, scheint es zumutbar, die Veröffentlichung von Releases bis zur Behebung des Problems manuell anzustoßen.
+
+[[pullrequesttitel]]
+=== Pull-Request-Titel [TBD]
+
+Es ist eine Richtlinie für das Verfassen von Pull-Request-Titeln zu entwickeln.
+
+[[releaseassets]]
+=== Releases-Assets [TBD]
+
+Die folgenden Assets könnten bei der Veröffentlichung eines Releases erzeugt und angehängt werden: 
+
+- [ ] PDF/UA-Gesamtausgabe des Prüfverfahrens (siehe <<releaseactions,Release-Aktionen>>)
+
+[[releaseactions]]
+=== Release-Aktionen [TBD]
+
+Die folgenden Prozessketten könnten / sollten sich an das Veröffentlichen eines neuen Releases (automatisiert) anschließen.
+
+- [x] Aktualisieren der Prüfschrittbeschreibungen im BITV-Test-Studio (bereits implementiert)
+- [ ] Aktualisieren der Prüfschrittbeschreibungen auf der zukünftigen Microsite (vorbereitet)
+- [ ] Erzeugen und Archivieren einer PDF/UA-Gesamtausgabe des Prüfverfahrens auf der Microsite (zur Verlinkung in Prüfberichten u.ä.)
+- [ ] Erzeugen eines News-Beitrags auf der Microsite (mit Inhalt der Release-Notizen)
+- [ ] Erzeugen eines RSS-Feed-Eintrags (Microsite?) zur Darstellung im BITV-Test-Studio
+- [ ] Versand eines E-Mail-Newsletters and die Prüfer-Mailingliste
+
+== Fragestellungen
+- Müssen die Prüfschrittbeschreibungen im Studio versioniert vorliegen, so dass zu jedem Prüfauftrag initial die Versionsnummer des Verfahrens gesichert wird und dann stets die Prüfschrittbeschreibungen dieser Version angezeigt werden? Wieviel Aufwand soll hier betrieben werden?
