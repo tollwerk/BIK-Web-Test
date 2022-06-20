@@ -4,4 +4,4 @@
 2. **Vergabe eines `version:*`-Labels** zur Kenntlichmachung, wie gravierend das Prüfverfahren beeinflusst wird (Standard: `version:patch`).
 3. **Vergabe eines `changelog:*`-Labels**, um die Darstellung im Änderungsprotokoll zu beeinflussen.
 
-Ausführliche Hinweise finden Sie in der [Anleitung zur Mitwirkung](/blob/doc/CONTRIBUTING.md).
+Ausführliche Hinweise finden Sie in der [Anleitung zur Mitwirkung](/tollwerk/BIK-Web-Test/blob/doc/CONTRIBUTING.md).
