@@ -1,4 +1,4 @@
-3 Schritte zum Anlegen eines Pull Requests:
+3 Schritte zum Anlegen eines vorbildlichen Pull Requests:
 
 1. **Benennung des Pull Requests** nach dem Schema `<Prüfschritt-Nummerierung> <Prüfschritt-Bezeichnung>: <Kurzbeschreibung-Änderung>`, beispielsweise "9.1.1.1a Alternativtexte für Bedienelemente: Korrektur von Rechtschreibfehlern".
 2. **Vergabe eines `version:*`-Labels** zur Kenntlichmachung, wie gravierend das Prüfverfahren beeinflusst wird (Standard: `version:patch`).
