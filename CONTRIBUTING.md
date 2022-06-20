@@ -1,4 +1,4 @@
-# Mitwirkung am Projekt
+# Mitwirkung an den Prüfschritten
 
 Sie möchten Ergänzungen oder Korrekturen an den Prüfschritten vorschlagen oder sich anderweitig beteiligen?
 Großartig! **Hier wird erklärt, wie Sie unterstützen können.**
@@ -13,7 +13,8 @@ und Ergänzungen beurteilen.
 ## Fehlermeldungen verwenden
 
 Der [Issue Tracker](https://github.com/tollwerk/BIK-Web-Test/issues) ist der bevorzugte
-Kanal für die Diskussion von [Korrekturen](#korrekturen), [Ergänzungen & Konkretisierungen](#erg%C3%A4nzungen)
+Kanal für die Diskussion von [Korrekturen](#korrekturen)
+, [Ergänzungen & Konkretisierungen](#erg%C3%A4nzungen--konkretisierungen)
 sowie zur Vorbereitung von [Pull Requests](#pull-requests). Beachten Sie allerdings die
 folgenden Einschränkungen:
 
@@ -106,7 +107,7 @@ Fehlerhafte *Pull-Request*-Bezeichnungen werden beim Übernehmen händisch korri
 
 ### Labels
 
-Wir verwenden für Pull Requests verschiedene Labels, um auszudrücken, welcher Natur die enthaltenen Änderungen sind und
+Wir verwenden für Pull Requests [verschiedene Labels](https://github.com/tollwerk/BIK-Web-Test/labels), um auszudrücken, welcher Natur die enthaltenen Änderungen sind und
 wie stark sie das Prüfverfahren beeinflussen. Auch wenn die Auswahl der richtigen Labels letztlich die Aufgabe der
 Administrierenden ist, die ihren Pull Request akzeptieren, können Sie durch Ihre Vorauswahl unterstützen. Hier sehen
 Sie, was unsere Labels bedeuten und wie sie genutzt werden:
