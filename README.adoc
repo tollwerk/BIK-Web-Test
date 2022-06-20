@@ -146,10 +146,33 @@ Das dargestellte Release-Konzept ist, von den optionalen Teilen und Vorschlägen
 [NOTE]
 Aufgrund eines https://github.com/release-drafter/release-drafter/issues/1148[bekannten Problems] in einem beteiligten Modul kann die Veröffentlichung von Releases derzeit noch nicht vollautomatisch angestoßen werden. Zumal aber ohnehin nur ein quartalsweiser Zeittakt vorgschlagen wird, scheint es zumutbar, die Veröffentlichung von Releases bis zur Behebung des Problems manuell anzustoßen.
 
-[[pullrequesttitel]]
-=== Pull-Request-Titel [TBD]
+=== Konkrete To-Dos
 
-Es ist eine Richtlinie für das Verfassen von Pull-Request-Titeln zu entwickeln.
+* [ ] Verfassen einer https://en.wikipedia.org/wiki/Contributing_guidelines[Richtlinie zum Beitragen zum Repository] in einer `CONTRIBUTING.md` im Wurzelverzeichnis. Es handelt sich dabei um eine Praxis, die im Open-Source-Umfeld bekannt und üblich ist. Darin sollten bestimmte Grundlagen festgehalten sein:
+** Änderungen an nur einem Prüfschritt je _Pull Request_
+** Betitelung von _Pull Requests_
+** usw.
+* [ ] Anlegen eines https://docs.github.com/en/communities/using-templates-to-encourage-useful-issues-and-pull-requests/creating-a-pull-request-template-for-your-repository[Pull-Request-Templates], indem die wesentlichen Richtlinien auch nochmal direkt im Kontext des Anlegens eines _Pull Requests_ verdeutlicht werden.
+
+[[pullrequesttitel]]
+=== Pull-Request-Titel
+
+Damit die Wiedergabe von Änderungen in den <<releasenotes,Release-Notizen>> sowie im <<changelog,Änderungsprotokoll>> möglichst sinnvoll sind, sollten _Pull Requests_ konsequent, einheitlich und aussagekräftig betitelt werden. Es wird daher vorgeschlagen, folgendes Format einzuhalten:
+
+[source]
+----
+<Prüfschritt-Nummer> <Prüfschritt-Bezeichnung>: <Kurzbeschreibung-Änderung>
+----
+
+Beispiel:
+
+[quote]
+9.1.1.1a Alternativtexte für Bedienelemente: Textkorrekturen 
+
+In den Release-Notizen sowie im Änderungsprotkoll wird dies zusätzlich mit interaktiven Verweisen auf die\*den Beitragende\*n sowie den _Pull Request_ versehen. Beispiel:
+
+[quote]
+9.1.1.1a Alternativtexte für Bedienelemente: Textkorrekturen https://github.com/sweckenmann[@sweckenmann] (https://github.com/tollwerk/BIK-Web-Test/pull/6[#6])
 
 [[releaseassets]]
 === Releases-Assets [TBD]
