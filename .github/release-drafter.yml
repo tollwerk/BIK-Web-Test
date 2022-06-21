@@ -26,16 +26,16 @@ version-resolver:
     labels:
       - 'version:patch'
   default: patch
-#include-labels:
-#  - 'changelog:added :heavy_plus_sign:'
-#  - 'changelog:changed :pencil2:'
-#  - 'changelog:deprecated :x:'
-#  - 'changelog:fixed :+1:'
-#  - 'changelog:removed :wastebasket:'
-#  - 'changelog:security :shield:'
-#  - 'major'
-#  - 'minor'
-#  - 'patch'
+include-labels:
+  - 'changelog:added :heavy_plus_sign:'
+  - 'changelog:changed :pencil2:'
+  - 'changelog:deprecated :x:'
+  - 'changelog:fixed :+1:'
+  - 'changelog:removed :wastebasket:'
+  - 'changelog:security :shield:'
+  - 'version:major'
+  - 'version:minor'
+  - 'version:patch'
 template: |
   ## Was hat sich getan?
 

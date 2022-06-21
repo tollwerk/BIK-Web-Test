@@ -2,8 +2,8 @@ name: Release-Veröffentlichung
 
 on:
   workflow_dispatch:
-  schedule:
-    - cron: '44 4 * * *'
+#  schedule:
+#    - cron: '44 4 * * *'
 
 jobs:
   procedure-perform-release:
